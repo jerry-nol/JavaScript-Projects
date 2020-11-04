@@ -22,6 +22,8 @@ function placeXOrO(squareNumber) {
         }
         //squareNumber and activePlayer are concatenated together and added to array.
         selectedSquares.push(squareNumber + activePlayer);
+        //This calls the function to check any win conditions
+        checkWinConditions();
         //This condition is for changing the active player.
         if (activePlayer === 'X') {
             //If active player is'X' change it to 'O'
@@ -54,7 +56,7 @@ function placeXOrO(squareNumber) {
         let pickASquare;
         //This condition allows our while loop to keep
         //trying if a square is selected already.
-        while(!success) {
+        while(!success){
             //A random number between 0-8 is selected
             pickASquare = String(Math.floor(Math.random() * 9));
             //If the random number elevates return true, the square hasn't been slected yet.
@@ -142,26 +144,10 @@ function audio(audioURL) {
     audio.play();
 }
 
-//This function makes our body element temporarily unclickable
-function disableClick() {
-    //This makes our body unclickable
-    body.style.pointerEvents = 'none';
-    //This makes our body clickable again after 1 second.
-    setTimeout(function() {body.style.pointerEvents = 'auto';}, 1000);
-}
-
-//This function takes a string parameter of the path you set earlier for placement sound (place.mp3)
-function audio(audioURL) {
-    //We create a new audio object and we pass the path as a parameter.
-    let audio = new Audio(audioURL);
-    //Play method plays our audio sound.
-    audio.play()
-}
-
 //This function utilizes html canvas to draw win lines.
 function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
     //This line accesses our html canvas element.
-    const canvas = document.getElementById('Win-lines');
+    const canvas = document.getElementById('win-lines');
     //This line gives us access to methods and proerties to use on canvas.
     const c = canvas.getContext('2d');
     //This line indicates where the start of a line x axis is.
@@ -176,7 +162,6 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         x = x1, 
         //This varaible stores temporary x axis data we update in our animation loop.
         y = y1;
-}
 
 //This function interacts with the canvas
 function animateLineDrawing() {
@@ -188,6 +173,8 @@ function animateLineDrawing() {
     c.beginPath();
     //This method moves us to a starting point for our line
     c.moveTo(x1, y1);
+    //This method indicates the end point in our line
+    c.lineTo(x,y)
     //This method set the width of our line
     c.lineWidth = 10;
     //This method sets the color of our line
@@ -195,16 +182,22 @@ function animateLineDrawing() {
     //This method draws everything we laid out above.
     c.stroke();
     //This condition checks if we've reached the endpoint
-    if (x <= x2 && y1 <= y2) {
+    if (x1 <= x2 && y1 <= y2) {
         //This condition adds 10 to the previous end x point
-        if (x < x2) {x += 10; }
+        if (x < x2) { x += 10; }
         //This condition adds 10 to the previous end y point
-        if (y < y2) {y += 10}
+        if (y < y2) { y += 10; }
         //This condition cancels our animation loop if reach the end points.
-        if (x >= x2 && y >= y2) {cancelAnimationFrame(animationLoop); }
+        if (x >= x2 && y >= y2) { cancelAnimationFrame(animationLoop); }
+    }
+    //This condition is simailar to the one above
+    //It was necessary for the 6, 4, 2 win condition
+    if (x1 <=x2 && y1 >= y2) {
+        if (x < x2) { x += 10; }
+        if (y > y2) { y -= 10; }
+        if (x >= x2 && y <= y2) { cancelAnimationFrame(animationLoop); }
     }
 }
-
 //This function clears our canvas after our win line is drawn 
 function clear() {
     //This line starts animation loop
@@ -213,7 +206,7 @@ function clear() {
     c.clearRect(0, 0, 608, 608);
     //This line stops our animation loop
     cancelAnimationFrame(animationLoop);
-
+}
 //This line disallows clicking while the win sound is playing
 disableClick();
 //This line plays the win sound.
