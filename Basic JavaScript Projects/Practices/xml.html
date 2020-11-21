@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html>
+    <body>
+        <p id="xml_practice"></p>
+        <script>
+            var xml_parse, xml_doc;
+
+            //creates a text string
+            var Car = "<car>" +
+            "<make>Subaru</make>" +
+            "<model>WRX</model>" +
+            "<year>2016</year>" +
+            "<submodel>STI</submodel>" +
+            "</car>";
+
+            //creates a xml parser
+            xml_parse = new DOMParser();
+            //creates a new XML DOM object using text string
+            xml_doc = xml_parse.parseFromString(Car,"text/xml");
+
+            document.getElementById("xml_practice").innerHTML = 
+            xml_doc.getElementsByTagName("submodel")[0].childNodes[0].nodeValue;
+
+        </script>
+    </body>
+</html>

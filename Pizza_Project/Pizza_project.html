@@ -9,12 +9,12 @@
     </head>
     <body>
         <div id="menuBG">
-            <h1 style="margin: 0 0px 0 20px;">Pizza Drill Tutorial</h1>
+            <h1 style="margin: 0 0px 0 20px; font-size: 3vw;">Pizza Drill Tutorial</h1>
             <input id="btnOrder" type="button" onclick="getReceipt()"
                 value="Place Order"
             <form id="frmMenu">
                 <div class="menu left">
-                    <h3>Size:</h3>
+                    <h3 id="button">Size:</h3>
                     <!-- radio buttons let the user choose only one of the choices given -->
                     <input class="size" type="radio" name="Size" 
                         value="Personal Pizza">Personal Pizza<br>
@@ -72,5 +72,9 @@
                 </div>
             </form>
         </div>
+        <script>
+            $("body").click(function(){
+  $("#button").fadeOut(3000);
+        </script>
     </body>
 </html>

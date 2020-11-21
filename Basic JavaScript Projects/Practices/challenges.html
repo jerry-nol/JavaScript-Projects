@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./JS/challenges.js"></script>
+        <link rel="stylesheet" href="./CSS/challenges.css">
+    </head>
+    <body>
+
+        <h2>Form</h2>
+        <hr>
+
+        <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+          <input type="text" name="phone" placeholder="(888)888-8888"><br>
+          <input type="submit" value="Submit">
+        </form> 
+
+        <p>We will not share your information with anyone.</p>
+
+        <button class="open-button" onclick="openForm()">Open Form</button>
+
+        <div class="popup" id="form">
+          <form action="/action_page.php" class="form-container">
+            <h1>Sign In</h1>
+        
+            <label for="userid"><b>User Id</b></label>
+            <input type="text" placeholder="Enter ID" name="userid" required>
+        
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+        
+            <button type="submit" class="btn">Sign In</button>
+            <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+          </form>
+        </div>
+
+        <div class="slide">
+          <p>Siding to the right</p>
+        </div>
+
+        <img id="zoom" src="./Img/zoom.jpg" alt="zoom effect">
+
+        <h2>Scrolling</h2>
+        
+        <div class="scroll" id="sect1">
+          <h3>Scroll down to section 2 by clicking below</h3>
+          <a href="#sect2">Section 2</a>
+        </div>
+
+        <div class="scroll" id="sect2">
+          <h3>Scroll back up to section 1</h3>
+          <a href="#sect1">Section 1</a>
+        </div>
+
+    </body>
+</html>

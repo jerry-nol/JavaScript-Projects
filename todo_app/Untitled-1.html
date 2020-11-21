@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="json"> </p>
+
+        <p id="jobj"></p>
+
+        <p id="local"></p>
+
+        <script>
+            var car = { "make":"Honda", "model":"Civic", "year":2012};
+            var myJSON = JSON.stringify(car);
+            document.getElementById("json").innerHTML = myJSON;
+            </script>
+
+        <script>
+            var dog = JSON.parse('{"Name":"Max", "Breed":"Husky"}');
+            
+            document.getElementById("jobj").innerHTML = dog.Name + " is a " + dog.Breed + " dog";
+
+            localStorage.setItem("Name", "Mittens");
+            document.getElementById("local").innerHTML = localStorage.getItem("Name")
+        </script>
+
+        
+    </body>
+</html>

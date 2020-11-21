@@ -65,6 +65,11 @@ body {
     background-color: blanchedalmond;
 }
 
+body.fade.in {
+    opacity: 1;
+    transform: none;
+}
+
 div {
     font-size: 17px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
