@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Head -->
+	<head>
+		<meta charset="UTF-8">
+		<title>Jerry Nolazco </title>
+		  <link rel="stylesheet" type="text/css" href="./css/portfolio.css">
+	</head>
+		  
+
+<!-- Body -->
+<body class="Background"> 
+
+<!-- Navbar -->
+	<div class="Navbar">
+		<a class="active" href="#Home">Home</a> 
+		<a href="#Slideshow">Slideshow</a> <!-- This is a new section -->
+		<a href="#About">About</a>
+		<a href="#GitHub">GitHub</a>
+		<a onclick="openForm()" ondblclick="closeForm()">Contact</a> <!-- This makes it so that our openForm function runs when we click Contact on the nav bar -->
+	</div>
+
+<!-- Home -->
+	<div id="Home">
+		<br> <!-- Breaks inserted to add space between navbar and first heading -->
+		<br>
+		
+<!-- Video -->
+		<video autoplay muted loop id="Typing_Video"> <!-- Makes the video play automatically, on a loop and with no sound -->
+			<source src="vid/vid_home.mp4" type="video/mp4">
+			Your browser does not support HTML5 video. <!-- Display message if video fails to run -->
+		</video>
+	</div>
+
+<!-- Video text --> 
+	<div class="Video_Text"> 
+		<h1 style="color:white;">Jerry Nolazco's Portfolio</h1>
+			<p> 
+			  <strong>
+					<center>
+                        <q>Programming is like any other sport.<br> 
+                            You might know the rules<br>
+                            but to have to play to learn.
+                        </q>
+                        <br>-Zuckerberg
+                        <br>
+                        Hi, my name Jerry Nolazco. Welcome to my portfolio website.<br> 
+                        Here, I will tell you about my experience and my background.
+                        <br>Enjoy and thank you for stopping by! 
+					</center>	
+			  </strong>				
+			</p> 
+	</div>
+
+        <!-- About -->
+        <div class="row" id="about">
+            <div class="column2"> <!-- Picture Columns-->
+                <img src="./img/img1.jpg" alt="Code">
+            </div>
+            <div class="column1"> <!--Text Columns-->
+                <h1>About</h1>
+                <p>
+                    I am a student at the <a href="https://www.learncodinganywhere.com/">The Tech Academy.</a> 
+                    I am enrolled in the Software Developer Boot Camp.<br>By the end of this course I
+                    will be an entry level junior delevoper. I am currently being trained in HTML and CSS
+                    programming languages.<br> I couldn't be more excited to continue expanding my knowlegde in new
+                    languages and what I could be able to create with them.  
+                </p>
+            </div>
+        </div>
+
+         <!-- GitHub Section -->
+         <div class="row" id="git">
+            <div class="column1">
+                <h1>Github Account</h1>
+                <p>To view my coding project please visit my GitHub profile.<br>
+                <center><a href="https://github.com/jerry-nol/Html-and-CSS-Projects-.git">Jerry-Nol</a></p></center>
+            </div>
+            <div class="column2">
+                <img src="./img/img2.jpg" alt="GitHub Logo">
+            </div>
+        </div>
+
+        <!-- Contact section -->
+
+        <div id="Contact"> 
+            <button onclick="openForm()" class="Pop_Up_Button"> CONTACT </button>
+              <div class="form-popup" id="myForm">
+                <form action="https://formspree.io/info@learncodinganywhere.com" method="POST" class="form-container"> <!-- Here we are using a free online service from https://formspree.io/ to send our contact form to an email address of our choosing - note: it will not run unless live on the internet, you have to push it to your online website first -->
+                <h1>Contact</h1>
+                    <label for="name"><b>Name</b></label>
+                      <input type="text" placeholder="Type your name here" name="name" required>
+                    <label for="phone"><b>Phone</b></label>
+                      <input type="text" placeholder="Enter your phone number here" name="phone">
+                    <label for="email"><b>Email</b></label>		
+                      <input type="text" placeholder="Type your email address here" name="email" required>
+                    <label for="message"><b>Message</b></label>
+                      <input type="text" placeholder="Type your message here" name="message">
+         
+            <button type="submit" class="btn">SUBMIT</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+                </form>
+              </div>
+          </div>
+          
+    <!-- Footer -->
+    <footer>
+        <p>
+         <center>&copy Portfolio &nbsp;|&nbsp; 2020</center>
+        </p>
+    </footer>        
+
+
+
+</body>
+
+</html>
